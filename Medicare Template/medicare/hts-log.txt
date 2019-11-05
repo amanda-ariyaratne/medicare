@@ -1,0 +1,13 @@
+HTTrack3.49-2+htsswf+htsjava launched on Mon, 04 Nov 2019 21:12:15 at http://dreamguys.co.in/preclinic/template/index.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://dreamguys.co.in/preclinic/template/index.html -O1 "F:\SEMESTER 4\CS3022 - Software Engineering\Medicare\medicare" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+21:14:45	Warning: 	File not parsed, looks like binary: dreamguys.co.in/preclinic/template/assets/fonts/fontawesome-webfont.woff2?v=4.7.0
+21:14:52	Error: 	"Not Found" (404) at link dreamguys.co.in/preclinic/template/assets/js/jquery-ui.min.js (from dreamguys.co.in/preclinic/template/calendar.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 2 minutes 43 seconds : 183 links scanned, 181 files written (7136949 bytes overall) [3037955 bytes received at 18637 bytes/sec], 5034501 bytes transferred using HTTP compression in 124 files, ratio 15%, 6.7 requests per connection
+(1 errors, 1 warnings, 0 messages)
