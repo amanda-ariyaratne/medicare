@@ -22,6 +22,21 @@ namespace Core;
     }
 
     /**
+     * used to render the layout and view of Index Page
+     * @method render
+     * @param  string $viewName path to view
+     */
+    public function renderHome($viewName) {
+      $viewAry = explode('/', $viewName);
+      $viewString = implode(DS, $viewAry);
+      if(file_exists(ROOT . DS . 'app' . DS . 'views' . DS . $viewString . '.php')) {
+        include(ROOT . DS . 'app' . DS . 'views' . DS . $viewString . '.php');
+      } else {
+        die('The view \"' . $viewName . '\" does not exist.');
+      }
+    }
+
+    /**
      * Used in the layouts to embed the head and body
      * @method content
      * @param  string  $type can be head or body

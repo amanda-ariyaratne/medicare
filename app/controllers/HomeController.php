@@ -5,6 +5,6 @@
   class HomeController extends Controller {
 
     public function indexAction() {
-      $this->view->render('home/index');
+      $this->view->renderHome('home/index');
     }
   }
