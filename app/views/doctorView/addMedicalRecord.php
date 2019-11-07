@@ -1,4 +1,4 @@
-<?= $this->setSiteTitle('MediCare - Add Consultation Session') ?>
+<?= $this->setSiteTitle('MediCare - Add Medical Record') ?>
 
 <?= $this->start('head'); ?>
 
@@ -7,20 +7,18 @@
 
 
 <?= $this->start('body'); ?>
-
-
     <div class="main-wrapper">
         <div class="page-wrapper">
             <div class="content">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h4 class="page-title">Add Consultation Session</h4>
+                        <h4 class="page-title">Add Medical Record</h4>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card-box">
-                            <h4 class="card-title">Add</h4>
+                            <h4 class="card-title">add</h4>
                             <form action="#">
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-2">Hospital</label>
@@ -33,45 +31,37 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Date</label>
-                                    <div class="cal-icon">
-                                        <input class="form-control datetimepicker" type="text">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Time</label>
-                                    <div class="col-lg-9">
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <input type="text" placeholder="from" class="form-control">
-                                            </div>
-                                            <div class="col-md-2">
-                                                <input type="text" placeholder="to" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-form-label col-md-2">No of slots</label>
+                                    <label class="col-form-label col-md-2">Symptoms</label>
                                     <div class="col-md-10">
-                                        <input type="text" class="form-control">
+                                        <textarea rows="5" cols="5" class="form-control" placeholder="Enter text here"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-2">Consultation fee</label>
+                                    <label class="col-form-label col-md-2">Diagnosis</label>
                                     <div class="col-md-10">
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">$</span>
-                                            </div>
-                                            <input class="form-control" type="text">
-                                        </div>
+                                        <textarea rows="5" cols="5" class="form-control" placeholder="Enter text here"></textarea>
                                     </div>
                                 </div>
-
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button">Submit</button>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-2">Comments</label>
+                                    <div class="col-md-10">
+                                        <textarea rows="5" cols="5" class="form-control" placeholder="Enter text here"></textarea>
+                                    </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-2">Medications</label>
+                                    <div class="col-md-10">
+                                        <textarea rows="5" cols="5" class="form-control" placeholder="Enter text here"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-2">Add reports</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="file">
+                                    </div>
+                                </div>
+                                
+                                <button class="btn btn-primary" type="button">Submit</button>
                             </form>
                         </div>
                     </div>
@@ -80,6 +70,7 @@
         </div>
     </div>
     <div class="sidebar-overlay" data-reff=""></div>
+
 
 
 <?= $this->end(); ?>
