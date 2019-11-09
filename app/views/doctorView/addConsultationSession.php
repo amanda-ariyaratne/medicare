@@ -26,9 +26,8 @@
                                     <label class="col-form-label col-md-2">Hospital</label>
                                     <div class="col-md-10">
                                         <select class="form-control">
-                                            <option>-- Select --</option>
-                                            <option>Asiri, Colombo</option>
-                                            <option>Navaloka</option>
+                                            <option value="" disabled selected>-- Select --</option>
+                                            <?php include 'HospitalList.php' ?>
                                         </select>
                                     </div>
                                 </div>
