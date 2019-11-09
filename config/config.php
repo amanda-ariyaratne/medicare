@@ -3,11 +3,11 @@
   define('DEBUG', true); // set debug to false for production
 
   // this should be set to false for security reasons. If you need to run migrations from the browser you can set this to true, then run migrations, then set it back to false.
-  define('RUN_MIGRATIONS_FROM_BROWSER', true);
+  define('RUN_MIGRATIONS_FROM_BROWSER', false);
 
   define('DB_NAME', 'medicare'); // database name
   define('DB_USER', 'root'); // database user
-  define('DB_PASSWORD', '123456'); // database password
+  define('DB_PASSWORD', ''); // database password
   define('DB_HOST', '127.0.0.1'); // database host *** use IP address to avoid DNS lookup
 
   define('DEFAULT_CONTROLLER', 'Home'); // default controller if there isn't one defined in the url

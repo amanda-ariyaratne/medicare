@@ -35,6 +35,11 @@ use Core\FH;
     <script src="<?=PROOT?>js/alertMsg.min.js?v=<?=VERSION?>"></script>
     <script src="<?=PROOT?>js/jquery.slimscroll.js"></script>
     <script src="<?=PROOT?>js/app.js"></script>
+    <script src="<?=PROOT?>js/select2.min.js"></script>
+    <script src="<?=PROOT?>js/jquery.dataTables.min.js"></script>
+    <script src="<?=PROOT?>js/dataTables.bootstrap4.min.js"></script>
+    <script src="<?=PROOT?>js/moment.min.js"></script>
+    <script src="<?=PROOT?>js/bootstrap-datetimepicker.min.js"></script>
 
   </body>
 </html>
