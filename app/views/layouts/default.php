@@ -241,9 +241,6 @@ use Core\FH;
         </div>
 
 
-    
-    <!-- <script src="<?= PROOT?>js/bootstrap-datetimepicker.min.js"></script> -->
-    <!-- <script src="<?= PROOT?>plugins/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.min.js"></script> -->
     <script src="<?= PROOT?>js/popper.min.js"></script>
     <script src="<?= PROOT?>js/jquery.slimscroll.js"></script>
     <script src="<?= PROOT?>js/select2.min.js"></script>
@@ -251,6 +248,12 @@ use Core\FH;
         <?= $this->content('body'); ?>
     </div>
     
+    <!-- <script src="<?=PROOT?>js/alertMsg.min.js?v=<?=VERSION?>"></script>
+    <script src="<?=PROOT?>js/jquery.slimscroll.js"></script>
+    <script src="<?=PROOT?>js/app.js"></script>
+    <script src="<?=PROOT?>js/select2.min.js"></script>
+    <script src="<?=PROOT?>js/jquery.dataTables.min.js"></script>
+    <script src="<?=PROOT?>js/dataTables.bootstrap4.min.js"></script> -->
 
   </body>
 </html>
