@@ -7,10 +7,18 @@
     "Doctor" : ["*"],
     "Patient" : ["*"]
   },
-  "LoggedIn" : {
+  "Patient" : {
     "denied" : {
       "Register" : ["login", "register"]
     },
+    "Home" : ["*"],
+    "Register" : ["logout"]
+  },
+  "Doctor" : {
+    "denied" : {
+      "Register" : ["login", "register"]
+    },
+    "Home" : ["*"],
     "Register" : ["logout"]
   }
 }

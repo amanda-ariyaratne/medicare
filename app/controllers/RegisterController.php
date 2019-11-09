@@ -14,14 +14,19 @@ class RegisterController extends Controller {
   }
 
   public function loginAction() {
+
     $loginModel = new Login();
     if($this->request->isPost()) {
+
       // form validation
       $this->request->csrfCheck();
+
       $loginModel->assign($this->request->get());
       $loginModel->validator();
       if($loginModel->validationPassed()){
+
         $user = Users::findByUsername($_POST['username']);
+
         if($user && password_verify($this->request->get('password'), $user->password)) {
           $remember = $loginModel->getRememberMeChecked();
           $user->login($remember);
@@ -33,7 +38,7 @@ class RegisterController extends Controller {
     }
     $this->view->login = $loginModel;
     $this->view->displayErrors = $loginModel->getErrorMessages();
-    $this->view->render('register/login');
+    $this->view->renderHome('register/login');
   }
 
   public function logoutAction() {
@@ -46,15 +51,19 @@ class RegisterController extends Controller {
   public function registerAction() {
     $newUser = new Users();
     if($this->request->isPost()) {
+
       $this->request->csrfCheck();
       $newUser->assign($this->request->get(),Users::blackListedFormKeys);
       $newUser->confirm =$this->request->get('confirm');
+      $newUser->username = $newUser->email;
+
       if($newUser->save()){
-        Router::redirect('register/login');
+        $newUser->login();
+        Router::redirect('');
       }
     }
     $this->view->newUser = $newUser;
     $this->view->displayErrors = $newUser->getErrorMessages();
-    $this->view->render('register/register');
+    $this->view->renderHome('register/register');
   }
 }

@@ -24,7 +24,7 @@ use Core\FH;
 
 
   <body>
-    <?php include 'main_menu.php' ?>
+    
     <div class="container-fluid pb-5" style="min-height: calc(100vh - 72px);">
       <?= Session::displayMsg() ?>
       <?= $this->content('body'); ?>
