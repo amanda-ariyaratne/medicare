@@ -4,7 +4,8 @@
     "Home" : ["*"],
     "Register" : ["login", "register"],
     "Restricted" : ["*"],
-    "Doctor" : ["*"]
+    "Doctor" : ["*"],
+    "Patient" : ["*"]
   },
   "LoggedIn" : {
     "denied" : {
