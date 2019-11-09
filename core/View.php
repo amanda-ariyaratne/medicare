@@ -10,7 +10,7 @@ namespace Core;
      * @method render
      * @param  string $viewName path to view
      */
-    public function render($viewName) {
+    public function render($viewName, $params=[]) {
       $viewAry = explode('/', $viewName);
       $viewString = implode(DS, $viewAry);
       if(file_exists(ROOT . DS . 'app' . DS . 'views' . DS . $viewString . '.php')) {
@@ -26,7 +26,7 @@ namespace Core;
      * @method render
      * @param  string $viewName path to view
      */
-    public function renderHome($viewName) {
+    public function renderHome($viewName, $params=[]) {
       $viewAry = explode('/', $viewName);
       $viewString = implode(DS, $viewAry);
       if(file_exists(ROOT . DS . 'app' . DS . 'views' . DS . $viewString . '.php')) {

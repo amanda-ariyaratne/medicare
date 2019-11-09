@@ -4,6 +4,7 @@ use Core\Controller;
 use Core\Router;
 use App\Models\Users;
 use App\Models\Login;
+use App\Models\Specializations;
 use Core\H;
 use Core\Session;
 
@@ -64,6 +65,7 @@ class RegisterController extends Controller {
     }
     $this->view->newUser = $newUser;
     $this->view->displayErrors = $newUser->getErrorMessages();
-    $this->view->renderHome('register/register');
+    $specializations = Specializations::find();
+    $this->view->renderHome('register/register', ["specializations" => $specializations]);
   }
 }
