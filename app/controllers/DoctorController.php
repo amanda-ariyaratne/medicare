@@ -4,9 +4,6 @@
 
   class DoctorController extends Controller {
 
-    public function addConsultationSessionAction() {
-      $this->view->render('DoctorView/addConsultationSession');
-    }
     public function addMedicalRecordAction() {
       $this->view->render('DoctorView/addMedicalRecord');
     }

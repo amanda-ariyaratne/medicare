@@ -4,7 +4,7 @@
     "Home" : ["*"],
     "Register" : ["login", "register","script"],
     "Restricted" : ["*"],
-    "Doctor" : ["*"],
+    "Consultation" : ["*"],
     "Patient" : ["*"]
   },
   "Patient" : {
@@ -12,13 +12,15 @@
       "Register" : ["login", "register"]
     },
     "Home" : ["*"],
-    "Register" : ["logout"]
+    "Register" : ["logout"],
+    "Consultation" : ["add"]
   },
   "Doctor" : {
     "denied" : {
       "Register" : ["login", "register"]
     },
     "Home" : ["*"],
-    "Register" : ["logout"]
+    "Register" : ["logout"],
+    "Consultation" : ["add","viewAll"]
   }
 }
