@@ -2,6 +2,8 @@
 use Core\Session;
 use Core\FH;
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,10 +16,13 @@ use Core\FH;
     <link rel="stylesheet" href="<?=PROOT?>css/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="<?=PROOT?>css/custom.css?v=<?=VERSION?>" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="<?=PROOT?>css/alertMsg.min.css?v=<?=VERSION?>" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="<?=PROOT?>css/style.css">
 
     <?= $this->content('head'); ?>
 
   </head>
+
+
   <body>
     
     <div class="container-fluid pb-5" style="min-height: calc(100vh - 72px);">
@@ -28,5 +33,8 @@ use Core\FH;
     <script src="<?=PROOT?>js/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="<?=PROOT?>js/bootstrap4/bootstrap.min.js"></script>
     <script src="<?=PROOT?>js/alertMsg.min.js?v=<?=VERSION?>"></script>
+    <script src="<?=PROOT?>js/jquery.slimscroll.js"></script>
+    <script src="<?=PROOT?>js/app.js"></script>
+
   </body>
 </html>
