@@ -94,7 +94,7 @@ use Core\FH;
                             <a href="appointments.html"><i class="fa fa-calendar-alt"></i> <span>Appointments</span></a>
                         </li>
                         <li>
-                            <a href="schedule.html"><i class="fa fa-calendar-check"></i> <span>Doctor Schedule</span></a>
+                            <a href="<?= PROOT ?>consultation/viewAll"><i class="fa fa-calendar-check"></i> <span>Doctor Schedule</span></a>
                         </li>
                         <li>
                             <a href="departments.html"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
