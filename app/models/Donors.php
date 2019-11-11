@@ -1,6 +1,7 @@
 <?php
 namespace App\Models;
 use Core\Model;
+use App\Models\Users;
 use Core\Validators\RequiredValidator;
 use Core\Validators\DateOfBirthValidator;
 use Core\Validators\EmailValidator;
@@ -54,5 +55,21 @@ class Donors extends Model {
 		foreach ($organs as $value) {
 			array_push($this->organs, $value);
 		}
+	}
+
+	public static function viewDonorCard(){
+		$sql = "SELECT * FROM donors WHERE user_id = " . Users::currentUser()->id . " AND deleted != 1;";
+		return Donors::getDB()->query($sql)->first();
+	}
+
+	public function exists($id){
+		$params = [
+			"conditions" => "user_id = ?",
+			"bind" => [$id]
+		];
+		if(count(Donors::find($params)) > 0){
+			return True;
+		}
+		return false;
 	}
 }

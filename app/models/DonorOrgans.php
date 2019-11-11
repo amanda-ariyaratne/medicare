@@ -18,4 +18,9 @@ class DonorOrgans extends Model {
 	public function validator(){
 		
 	}
+
+	public static function getDonorOrgans($d_id){
+		$sql = "SELECT * FROM donor_organs WHERE donor_id = " . $d_id . ";";
+		return Donors::getDB()->query($sql)->results();
+	}
 }

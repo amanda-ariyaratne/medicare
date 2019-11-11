@@ -10,6 +10,9 @@
 
     public function registerAction() {
       $donor = new Donors();
+      if ($donor->exists(Users::currentUser()->id)) {
+        Router::redirect('organ/view');
+      }
       if ($this->request->isPost()) {
         // $this->request->csrfCheck();
 
@@ -44,6 +47,19 @@
       }
       $this->view->displayErrors = $donor->getErrorMessages();
       $this->view->render('organ/register');
+    }
+
+    public function viewAction(){
+      $params = [
+        "conditions" => "user_id = ?"
+      ];
+      $donor = Donors::viewDonorCard();
+      $donor_organs = DonorOrgans::getDonorOrgans($donor->id);
+      $organs = array();
+      foreach ($donor_organs as $do) {
+        array_push($organs, $do->organ);
+      }
+      $this->view->render('organ/view', ["donor" => $donor, "organs" => $organs]);
     }
 
   }
