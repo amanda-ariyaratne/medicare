@@ -2,7 +2,7 @@
 use Core\FH;
 ?>
 
-<?= $this->setSiteTitle('MediCare - Organ Donation') ?>
+<?= $this->setSiteTitle('MediCare - Donation Registration') ?>
 
 <?= $this->start('head'); ?>
     <style type="text/css">
