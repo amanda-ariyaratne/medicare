@@ -20,7 +20,7 @@ class RegisterController extends Controller {
     if($this->request->isPost()) {
 
       // form validation
-      $this->request->csrfCheck();
+      // $this->request->csrfCheck();
 
       $loginModel->assign($this->request->get());
       $loginModel->validator();

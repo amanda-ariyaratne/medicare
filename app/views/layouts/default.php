@@ -14,27 +14,28 @@ use Core\FH;
     <link rel="shortcut icon" type="image/x-icon" href="<?=PROOT?>images/favicon.ico">
     <title><?=$this->siteTitle(); ?></title>
 
-
-
     <link rel="stylesheet" href="<?=PROOT?>css/bootstrap4/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="<?=PROOT?>css/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="<?=PROOT?>css/custom.css?v=<?=VERSION?>" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="<?=PROOT?>css/alertMsg.min.css?v=<?=VERSION?>" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" type="text/css" href="<?=PROOT?>css/style.css">
     <link rel="stylesheet" type="text/css" href="<?=PROOT?>css/select2/select2.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="<?=PROOT?>css/bootstrap-datetimepicker.min.css"> -->
     <link rel="stylesheet" type="text/css" href="<?=PROOT?>css/dreamguys.style.css">
-    <!-- <link rel="stylesheet" type="text/css" href="<?=PROOT?>plugins/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker.css"> -->
+
+    <!-- Scripts -->
     <script src="<?= PROOT?>js/jquery-3.2.1.min.js"></script>
     <script src="<?= PROOT?>js/moment.min.js"></script>
     <script src="<?= PROOT?>js/bootstrap4/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
+
+    <!-- Tempus Dominus -->
+    <script src="<?= PROOT?>plugins/tempus-dominus/tempus-dominus.js"></script>
+    <link rel="stylesheet" href="<?= PROOT?>plugins/tempus-dominus/tempus-dominus.min.css" />
+
+    <!-- Toastr -->
+    <link rel="stylesheet" type="text/css" href="<?=PROOT?>plugins/toastr/toastr.min.css">
+    <script type="text/javascript" src="<?=PROOT?>plugins/toastr/toastr.min.js"></script>
 
 
-    <!-- Not imported -->
-    <!--
-    -->
     <?= $this->content('head'); ?>
   </head>
 

@@ -21,6 +21,7 @@
     },
     "Home" : ["*"],
     "Register" : ["logout"],
-    "Consultation" : ["add","viewAll"]
+    "Consultation" : ["add","viewAll"],
+    "Organ" : ["*"]
   }
 }

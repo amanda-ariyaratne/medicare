@@ -16,10 +16,15 @@ use Core\FH;
     <link rel="stylesheet" type="text/css" href="<?=PROOT?>css/bootstrap4/bootstrap.min.css">
     <link rel="stylesheet" href="<?=PROOT?>css/fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="<?=PROOT?>css/dreamguys.style.css">
-    <!--[if lt IE 9]>
-    <script src="assets/js/html5shiv.min.js"></script>
-    <script src="assets/js/respond.min.js"></script>
-  <![endif]-->
+    
+    <!-- Scripts -->
+    <script src="<?= PROOT?>js/jquery-3.2.1.min.js"></script>
+    <script src="<?= PROOT?>js/bootstrap4/bootstrap.min.js"></script>
+
+    <!-- Toastr -->
+    <link rel="stylesheet" type="text/css" href="<?=PROOT?>plugins/toastr/toastr.min.css">
+    <script type="text/javascript" src="<?=PROOT?>plugins/toastr/toastr.min.js"></script>
+
 </head>
 
 <body>
@@ -34,7 +39,7 @@ use Core\FH;
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="text" autofocus="" class="form-control" name="username">
+                            <input type="text" autofocus="" class="form-control" name="username" value="<?php echo isset($_POST['username']) ? $_POST['username'] : null ; ?>">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
@@ -44,7 +49,7 @@ use Core\FH;
                             New User?
                             <a href="<?=PROOT?>register/register"> &nbsp; Create an Account</a>
                         </div>
-                        <input type="hidden" name="remember_me" value="false">
+                        <input type="hidden" name="remember_me" value="true">
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary account-btn">Login</button>
                         </div>
@@ -56,6 +61,12 @@ use Core\FH;
       </div>
         </div>
     </div>
+<?php 
+    $this->displayErrors = array_reverse($this->displayErrors, true);
+    foreach ($this->displayErrors as $key => $value){
+        echo '<script> toastr.error("' . $value . '")</script>';
+    }
+?>
 </body>
 
 </html>

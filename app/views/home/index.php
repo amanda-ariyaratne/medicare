@@ -204,7 +204,7 @@
                             <div class="banner-content">
                                 <h1>MediCare</h1>
                                 <p>With more than two decades of tradition, excellence and quality in providing medical care in a comfortable and convenient environment, we bring peace of mind for the thousands of patients we care about every day with the help of our doctors</p> 
-								<a title="Consult" class="btn btn-primary consult-btn" href="<?=PROOT?>register/login">Consult</a>
+								<a title="Consult" class="btn btn-primary consult-btn" href="<?=PROOT?>register/login">Login</a>
                             </div>
                         </div>
                     </div>
