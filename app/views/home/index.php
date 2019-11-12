@@ -1,3 +1,11 @@
+<?php
+use Core\Session;
+use Core\FH;
+use App\Models\Users;
+
+$user = Users::currentUser()
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,58 +42,24 @@
     <body>
         <!-- Header -->
         <header class="header">
-            <div class="header-top">
+            <div class="header-top" style="background-color: #009ce7;">
                 <div class="container">
                     <div class="row">
                          <div class="col-md-2 float-left">
-                            <div class="logo">
-								<a href="index.html"><img alt="Logo" src="assets/img/logo.png" width="56" height="50"></a>
-                            </div>
+                            <a href="" class="logo">
+                                <img src="<?=PROOT?>images/logo.png" width="35" height="35" alt=""> <span style="color: white;">MediCare</span>
+                            </a>
                         </div>
                         <div class="col-md-10">
 							<nav class="navbar navbar-expand-md p-0">
 								<div class="navbar-collapse collapse" id="navbar">
 									<ul class="nav navbar-nav main-nav float-right ml-auto">
-										<li class="active nav-item">
-											<a href="index.html" class="nav-link">Home</a>
-										</li>
+
 										<li class="nav-item">
-											<a href="about-us.html" class="nav-link">About Us</a>
+											<a href="<?=PROOT?>home/newH" class="nav-link" style="color: white;">Home</a>
 										</li>
-										<li class="nav-item">
-											<a href="departments.html" class="nav-link">Departments</a>
-										</li>
-										<li class="nav-item">
-											<a href="services.html" class="nav-link">Services</a>
-										</li>
-										<li class="nav-item">
-											<a href="doctors.html" class="nav-link">Doctors</a>
-										</li>
-										<li class="dropdown nav-item"> 
-											<a class="dropdown-toggle nav-link" data-toggle="dropdown">Blog <b class="caret"></b></a>
-											<div class="dropdown-menu dropdown-menu-right">
-												<a class="dropdown-item" href="blog.html">Right Sidebar</a>
-												<a class="dropdown-item" href="blog-left-sidebar.html">Left Sidebar</a>
-												<a class="dropdown-item" href="blog-full-width.html">Full Width</a>
-												<a class="dropdown-item" href="blog-grid.html">Blog Grid</a>
-												<a class="dropdown-item" href="blog-details.html">Blog Details</a>
-											</div>
-										</li>
-										<li class="nav-item">
-											<a href="contact-us.html" class="nav-link">Contact Us</a>
-										</li>
-										<li class="nav-item">
-											<a class="btn btn-primary appoint-btn nav-link" href="appointment.html">Appointment</a>
-										</li>
-										<li class="dropdown nav-item"> 
-											<a class="dropdown-toggle settings-icon nav-link" data-toggle="dropdown"><i class="fa fa-cog"></i></a>
-											<div class="dropdown-menu dropdown-menu-right">
-												<a class="dropdown-item" href="login.html">Login</a>
-												<a class="dropdown-item" href="register.html">Register</a>
-												<a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-												<a class="dropdown-item" href="404.html">404</a>
-											</div>
-										</li>
+										
+										
 									</ul>
 								</div>
 							</nav>
@@ -111,85 +85,7 @@
         <div class="sidebar sidebar-menu" id="side_menu">
             <div class="sidebar-inner slimscroll">
 				<a id="close_menu" href="#"><i class="fa fa-close"></i></a>
-                <ul class="mobile-menu-wrapper" style="display: block;">
-                    <li class="active">
-                        <div class="mobile-menu-item clearfix"> 
-							<a href="index.html">Home</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix"> 
-							<a href="about-us.html">About Us</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix">
-							<a href="departments.html">Departments</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix"> 
-							<a href="services.html">Services</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix"> 
-							<a href="doctors.html">Doctors</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix"> 
-							<a href="" class="menu-toggle">Blog <i class="fa fa-chevron-down menu-toggle"></i></a>
-                        </div>
-                        <ul class="mobile-submenu-wrapper" style="display: none;">
-                            <li>
-								<a href="blog.html">Right Sidebar</a>
-                            </li>
-                            <li>
-								<a href="blog-left-sidebar.html">Left Sidebar</a>
-                            </li>
-                            <li>
-								<a href="blog-full-width.html">Full Width</a>
-                            </li>
-                            <li>
-								<a href="blog-grid.html">Blog Grid</a>
-                            </li>
-                            <li>
-								<a href="blog-details.html">Blog Details</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix">
-							<a href="contact-us.html">Contact Us</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix"> 
-							<a href="appointment.html">Appointment</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix">
-							<a href="login.html">Login</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix">
-							<a href="register.html">Register</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix">
-							<a href="forgot-password.html">Forgot Password</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mobile-menu-item clearfix"> 
-							<a href="404.html">404</a>
-                        </div>
-                    </li>
-                </ul>
+
             </div>
         </div>
 		<!-- Mobile Sidebar /-->
@@ -204,7 +100,23 @@
                             <div class="banner-content">
                                 <h1>MediCare</h1>
                                 <p>With more than two decades of tradition, excellence and quality in providing medical care in a comfortable and convenient environment, we bring peace of mind for the thousands of patients we care about every day with the help of our doctors</p> 
-								<a title="Consult" class="btn btn-primary consult-btn" href="<?=PROOT?>register/login">Consult</a>
+								
+
+
+
+
+                                <a class="btn btn-primary consult-btn" href="<?php if (isset($user)) {echo PROOT . 'register/logout';} else {echo PROOT . 'register/login';} ?>" title="Register">
+                      
+                                  <i class="demo-icon icon-pencil-2"></i>
+
+                                  <?php if (isset($user)) {
+                                    echo 'Logout';
+                                  } else {
+                                    echo 'Login';
+                                  } ?>
+                                </a>
+
+
                             </div>
                         </div>
                     </div>

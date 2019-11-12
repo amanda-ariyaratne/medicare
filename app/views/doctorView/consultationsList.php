@@ -22,7 +22,7 @@ use Core\FH;
                         <h4 class="page-title">Schedule</h4>
                     </div>
                     <div class="col-sm-8 col-9 text-right m-b-20">
-                        <a href="add-schedule.html" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Schedule</a>
+                        <a href="<?= PROOT ?>consultation/add" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add New Consultation</a>
                     </div>
                 </div>
 				<div class="row">
@@ -45,25 +45,17 @@ use Core\FH;
                                     <?php
                                         foreach ($consultations as $c) {
                                             echo '<tr>';
+                                                echo '<td>' . $c->name . '</td>';
+                                                echo '<td>' . $c->date . '</td>';
+                                                echo '<td>' . substr($c->start_time, 0, -3) . '</td>';
+                                                echo '<td>' . substr($c->end_time, 0, -3) . '</td>';
+                                                echo '<td>' . $c->no_of_slots . '</td>';
+                                                echo '<td>' . $c->slots_filled . '</td>';
+                                                echo '<td> Rs. ' . $c->fee . '</td>';
+                                                echo '<td class="text-right"> <div class="dropdown dropdown-action"><a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a> <div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item" href="edit-schedule.html"><i class="fa fa-pencil m-r-5"></i> Edit</a> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_schedule"><i class="fa fa-trash-o m-r-5"></i> Delete</a></div></div></td>';
                                             echo '</tr>';
                                         }
                                     ?>
-									<tr>
-										<td><img width="28" height="28" src="assets/img/user.jpg" class="rounded-circle m-r-5" alt=""> Henry Daniels</td>
-										<td>Cardiology</td>
-										<td>Sunday, Monday, Tuesday</td>
-										<td>10:00 AM - 7:00 PM</td>
-										<td><span class="custom-badge status-green">Active</span></td>
-										<td class="text-right">
-											<div class="dropdown dropdown-action">
-												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a class="dropdown-item" href="edit-schedule.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-													<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_schedule"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-												</div>
-											</div>
-										</td>
-									</tr>
 								</tbody>
 							</table>
 						</div>

@@ -111,7 +111,7 @@ a:focus {
 	border-radius: 0;
 	box-shadow: none;
 	padding: 0.469rem 0.75rem;
-	border-color: #eaeaea;
+	border-color: #ccc;
 	font-size: 14px;
 	min-height: 40px;
 }

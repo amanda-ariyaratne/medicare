@@ -12,7 +12,7 @@ class Consultations extends Model {
 	}
 
 	public function formatDate(){
-		$this->date = date('Y-m-d', strtotime(str_replace('-', '/', $this->date)));
+		$this->date = substr($this->date, 6, 4) . '-' . substr($this->date, 3, 2) . '-' . substr($this->date, 0, 2);
 	}
 
 	public function formatTime(){

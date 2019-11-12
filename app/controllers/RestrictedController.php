@@ -5,10 +5,10 @@ use Core\Controller;
 class RestrictedController extends Controller {
 
   public function indexAction() {
-    $this->view->render('restricted/index');
+    $this->view->renderHome('restricted/index');
   }
 
   public function badTokenAction(){
-    $this->view->render('restricted/badToken');
+    $this->view->renderHome('restricted/badToken');
   }
 }

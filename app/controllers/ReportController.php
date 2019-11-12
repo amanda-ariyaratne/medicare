@@ -2,7 +2,7 @@
   namespace App\Controllers;
   use Core\Controller;
 
-  class DoctorController extends Controller {
+  class ReportController extends Controller {
 
     public function MedicalReportAction() {
       $this->view->render('DoctorView/medicalReport');
@@ -13,4 +13,4 @@
     public function medicalReportListAction() {
       $this->view->render('DoctorView/medicalReportList');
     }
-  }
+}

@@ -7,4 +7,7 @@
     public function indexAction() {
       $this->view->renderHome('home/index');
     }
+    public function newHAction() {
+      $this->view->render('home/newH');
+    }
   }
