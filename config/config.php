@@ -7,7 +7,7 @@
 
   define('DB_NAME', 'medicare'); // database name
   define('DB_USER', 'root'); // database user
-  define('DB_PASSWORD', 'Ox4Q9lfHs04f'); // database password
+  define('DB_PASSWORD', '123456'); // database password //Ox4Q9lfHs04f server
   define('DB_HOST', '127.0.0.1'); // database host *** use IP address to avoid DNS lookup
 
   define('DEFAULT_CONTROLLER', 'Home'); // default controller if there isn't one defined in the url

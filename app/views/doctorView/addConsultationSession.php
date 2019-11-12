@@ -36,7 +36,7 @@ use Core\FH;
                                             <?php
                                                 foreach ($hospitals as $h) {
                                                     echo '<option value="' . $h->id . '" >' . $h->name . '</option>';
-                                                }
+                                                } 
                                             ?>
                                         </select>
                                     </div>
@@ -106,9 +106,15 @@ use Core\FH;
                 $(function () {
                     minimum_date = new Date();
                     minimum_date.setDate(minimum_date.getDate() + 7);
+                    year = minimum_date.getUTCFullYear();
+                    month = minimum_date.getUTCMonth() + 1;
+                    day = minimum_date.getUTCDate();
+                    minimum_date = year + '-' + month + '-' + day;
+                    console.log(minimum_date);
                     $('#datetimepicker1').datetimepicker({
-                        format: 'D/M/Y',
-                        minDate: minimum_date
+                        format: 'YYYY-MM-DD',
+                        minDate: minimum_date,
+                        date: null
                     });
                     $('#datetimepicker2').datetimepicker({
                         format: 'HH:mm'
