@@ -16,7 +16,7 @@
                         <h4 class="page-title">Appointments</h4>
                     </div>
                     <div class="col-sm-8 col-9 text-right m-b-20">
-                        <a href="add-patient.html" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Patient</a>
+                        <a href="<?=PROOT?>patient/requestAppointment" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Request Appointment</a>
                     </div>
                 </div>
 				<div class="row">
@@ -26,6 +26,8 @@
 								<thead>
 									<tr>
 										<th>Date</th>
+										<th>Start time</th>
+										<th>End time</th>
 										<th>Hospital</th>
 										<th>Doctor</th>
 										<th>Specialization Feild</th>
@@ -34,26 +36,30 @@
 								</thead>
 								<tbody>
 									<?php
-										foreach ($params['appointments'] as $app) {
-											var_dump("array");
+										foreach ($params as $app) {
+											echo'
+												<tr>
+													<td><i class="far fa-calendar-check"></i>  '.$app['obj']->date.'</td>
+													<td>'.$app['obj']->start_time.'</td>
+													<td>'.$app['obj']->end_time.'</td>
+													<td>'.$app['hospital'].'</td>
+													<td>'.$app['doctor_fname'].' '.$app['doctor_lname'].'</td>
+													<td>'.$app['specialization_field'].'</td>
+													<td class="text-right">
+														<div class="dropdown dropdown-action">
+															<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+															<div class="dropdown-menu dropdown-menu-right">
+																<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_patient"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+															</div>
+														</div>
+													</td>
+												</tr>
+
+											';
 										}
 
 									?>
-									<tr>
-										<td><i class="far fa-calendar-check"></i> 2019-10-12</td>
-										<td>Asiri</td>
-										<td>Dr.Perera</td>
-										<td>AAA</td>
-										<td class="text-right">
-											<div class="dropdown dropdown-action">
-												<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-												<div class="dropdown-menu dropdown-menu-right">
-													<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_patient"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-												</div>
-											</div>
-										</td>
-									</tr>
-
+									
 								</tbody>
 							</table>
 						</div>
