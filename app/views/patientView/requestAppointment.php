@@ -58,11 +58,8 @@
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-2">Date</label>
-                                    <div class="input-group date col-md-3" id="datetimepicker1" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input " data-target="#datetimepicker1" name="date" />
-                                        <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                        </div>
+                                    <div class="input-group date col-md-3" id="" data-target-input="">
+                                        <input type="text" class="form-control" name="date" placeholder="DD/MM/YYYY"> 
                                     </div>
                                 </div>
                                 
@@ -79,33 +76,14 @@
     </div>
     <div class="sidebar-overlay" data-reff=""></div>
 
-    <script type="text/javascript">
-            $(document).ready(function(){
-                $(function () {
-                    minimum_date = new Date();
-                    minimum_date.setDate(minimum_date.getDate() + 7);
-                    $('#datetimepicker1').datetimepicker({
-                        format: 'D/M/Y',
-                        minDate: minimum_date
-                    });
-                    $('#datetimepicker2').datetimepicker({
-                        format: 'HH:mm'
-                    });
-                    $('#datetimepicker3').datetimepicker({
-                        format: 'HH:mm'
-                    });
-                });
 
-                $('#form_add').on('keyup keypress', function(e) {
-                  var keyCode = e.keyCode || e.which;
-                  if (keyCode === 13) { 
-                    e.preventDefault();
-                    return false;
-                  }
-                });
-            });
-                
-        </script>
+
+<?php 
+    $this->displayErrors = array_reverse($this->displayErrors, true);
+    foreach ($this->displayErrors as $key => $value){
+        echo '<script> toastr.error("' . $value . '")</script>';
+    }
+?>
 
 
 

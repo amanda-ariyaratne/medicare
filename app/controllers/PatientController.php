@@ -12,6 +12,7 @@
   	class PatientController extends Controller {
 
     	public function requestAppointmentAction() {
+        $newAppointment = new Appointments();
     		$hospitals = hospitals::find();
     		$spec = Specializations::find();
     		$doctors = Users::find(['conditions'=>'acl = ?' , 'bind' => ["Doctor"]]);
@@ -20,8 +21,9 @@
     			"spec" => $spec,
     			"doctors" => $doctors
     		];
+        $this->view->displayErrors = $newAppointment->getErrorMessages();
 
-      		$this->view->render('PatientView/requestAppointment',$params);
+      	$this->view->render('PatientView/requestAppointment',$params);
     	}
 
 
@@ -68,48 +70,53 @@
     		if ($this->request->isPost()) {
     			$this->request->csrfCheck();
     			$newAppointment->assign($this->request->get(), Appointments::blackListedFormKeys);
-    			$newAppointment->p_id = Users::currentUser()->id;
-          $newAppointment->formatDate();
 
-          $consultations = Consultations::find(['conditions'=>['doctor_id = ?' , 'hospital_id = ?' , 'date = ?'] , 'bind' => [$newAppointment->d_id ,  $newAppointment->hospital_id , $newAppointment->date]]);
+          $newAppointment->validator();
+          if($newAppointment->validationPassed()){
 
-
-          #var_dump($consultations);
-          
-          if (!empty($consultations)){
-
-            foreach ($consultations as $c) {
-              if ($c->no_of_slots > $c->slots_filled) {
-                $con = $c;
-
-                $hospital = Hospitals::findFirst(['conditions'=>'id = ?' , 'bind' => [$newAppointment->hospital_id]]);
-                $doc = Users::findFirst(['conditions'=>'id = ?' , 'bind' => [$newAppointment->d_id]]);
-                $spec = Specializations::findFirst(['conditions'=>'id = ?' , 'bind' => [$doc->specialization]]);
-
-                $params = [
-                  'hospital' => $hospital->name,
-                  'hospital_id' => $hospital->id,
-                  'specialization' => $spec->name,
-                  'doctor_fname' => $doc->fname,
-                  'doctor_lname' => $doc->lname,
-                  'doctor_id' => $doc->id,
-                  'date' => $newAppointment->date,
-                  'start_time' => $con->start_time,
-                  'end_time' => $con->end_time,
-                  'c_id' => $con->id
-
-                ];
-
-                $this->view->render('PatientView/viewRequestedAppointment',$params);
-                break;
+      			$newAppointment->p_id = Users::currentUser()->id;
+            $newAppointment->formatDate();
+            $consultations = Consultations::find(['conditions'=>['doctor_id = ?' , 'hospital_id = ?' , 'date = ?'] , 'bind' => [$newAppointment->d_id ,  $newAppointment->hospital_id , $newAppointment->date]]);
+            if (!empty($consultations)){
+              foreach ($consultations as $c) {
+                if ($c->no_of_slots > $c->slots_filled) {
+                  $con = $c;
+                  $hospital = Hospitals::findFirst(['conditions'=>'id = ?' , 'bind' => [$newAppointment->hospital_id]]);
+                  $doc = Users::findFirst(['conditions'=>'id = ?' , 'bind' => [$newAppointment->d_id]]);
+                  $spec = Specializations::findFirst(['conditions'=>'id = ?' , 'bind' => [$doc->specialization]]);
+                  $params = [
+                    'hospital' => $hospital->name,
+                    'hospital_id' => $hospital->id,
+                    'specialization' => $spec->name,
+                    'doctor_fname' => $doc->fname,
+                    'doctor_lname' => $doc->lname,
+                    'doctor_id' => $doc->id,
+                    'date' => $newAppointment->date,
+                    'start_time' => $con->start_time,
+                    'end_time' => $con->end_time,
+                    'c_id' => $con->id
+                  ];
+                  $this->view->render('PatientView/viewRequestedAppointment',$params);
+                  break;
+                }
               }
             }
-
-
-            
+            else{$this->view->render('PatientView/appointmentFailed');}
           }
-          else{$this->view->render('PatientView/appointmentFailed');}
-          
+
+
+          $this->view->displayErrors = $newAppointment->getErrorMessages();
+          $hospitals = hospitals::find();
+          $spec = Specializations::find();
+          $doctors = Users::find(['conditions'=>'acl = ?' , 'bind' => ["Doctor"]]);
+          $params = [
+            "hospitals" => $hospitals , 
+            "spec" => $spec,
+            "doctors" => $doctors
+          ];
+
+            $this->view->render('PatientView/requestAppointment',$params);
+
     		}
         else{
           $hospitals = hospitals::find();
@@ -117,7 +124,7 @@
         }
     		
 
-       	}
+      }
 
 
 
@@ -126,20 +133,25 @@
           $newAppointment = new Appointments();
 
           if ($this->request->isPost()) {
-            $this->request->csrfCheck();
+            #$this->request->csrfCheck();
             
             $newAppointment->assign($this->request->get(), Appointments::blackListedFormKeys);
             $newAppointment->p_id = Users::currentUser()->id;
 
-            $newAppointment->beforeSave();
-            $newAppointment->save();
 
+            $newAppointment->beforeSave();
+            var_dump('came 0');
+
+            $newAppointment->save();
+            var_dump('came 1');
             $consultation_obj = new Consultations();
             $slots_filled_pre = (   $consultation_obj->findFirst(['conditions'=>'id = ?' , 'bind' => [$newAppointment->c_id]])   )->slots_filled;
+            var_dump("came 2");
 
             $fields=['slots_filled'=> $slots_filled_pre+1];
             $consultation_obj->id = $newAppointment->c_id;
             $a = $consultation_obj->update($fields);
+
             $this->view->render('PatientView/appointmentSuccess');
           }
         }
