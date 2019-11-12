@@ -40,7 +40,7 @@
 					$appointment['doctor_lname'] = $doctor->lname;
 					$hospital = Hospitals::findFirst(['conditions'=>'id = ?' , 'bind' => [$app->hospital_id]]);
 					$appointment['hospital'] = $hospital->name;
-					$spec = Specializations::findFirst(['conditions'=>'id = ?' , 'bind' => [$app->specialization_field]]);
+					$spec = Specializations::findFirst(['conditions'=>'id = ?' , 'bind' => [$doctor->specialization]]);
 					$appointment['specialization_field'] = $spec->name;
 					array_push($params2, $appointment);
 				}
