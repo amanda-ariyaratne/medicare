@@ -2,7 +2,7 @@
 use Core\FH;
 ?>
 
-<?= $this->setSiteTitle('MediCare - Organ Donation') ?>
+<?= $this->setSiteTitle('MediCare - Donation Registration') ?>
 
 <?= $this->start('head'); ?>
     <style type="text/css">
@@ -216,7 +216,7 @@ use Core\FH;
                             <div class="col-md-10">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="condition1" value="true" checked="checked" disabled> I understand that this pledge is for donation of my organs after my death.
+                                        <input type="checkbox" name="condition1" value="true" checked="checked" disabled> I understand and accept the MediCare Terms and Conditions.
                                     </label>
                                 </div>
                             </div>
